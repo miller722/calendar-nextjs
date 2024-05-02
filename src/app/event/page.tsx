@@ -16,7 +16,6 @@ export default function Event() {
     return (
         <div>
             <Layout>
-                {JSON.stringify(EventStore.events)}
                 <EventCalendar events={EventStore.events} />
                 <Row justify="center">
                     <Button

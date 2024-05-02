@@ -8,8 +8,8 @@ import { useState } from "react";
 
 
 const LoginForm = observer(() => {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const [username, setUsername] = useState('user1')
+    const [password, setPassword] = useState('password1')
     const router = useRouter();
     const submit = async () => {
         await AuthStore.login(username, password);
@@ -30,14 +30,14 @@ const LoginForm = observer(() => {
                     rules={[{ required: true, message: 'Please input your username!' }]}
                 >
                     <Input
-                        value={username} onChange={e => setUsername(e.target.value)} />
+                        value={username} />
                 </Form.Item>
                 <Form.Item
                     label="Password"
                     name="Password"
                     rules={[{ required: true, message: 'Please input your Password!' }]}
                 >
-                    <Input value={password} onChange={e => setPassword(e.target.value)} type="password" />
+                    <Input value={[password]} type="password" />
                 </Form.Item>
                 <Form.Item
                 >
