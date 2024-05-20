@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Layout, Menu, Row } from "antd";
+import { Button, Layout, Menu, Row } from "antd";
 import { observer } from "mobx-react-lite";
 import AuthStore from "./store/AuthStore";
 import Link from "next/link";
@@ -21,15 +21,15 @@ const Navigation = observer(() => {
     return (
         <Layout>
             <Layout.Header>
-                <Row justify="end">
-                    <div style={{ color: "white", fontSize: "18px" }}>NextJS</div>
-                    <Menu theme="dark" mode="horizontal">
-                        {AuthStore.isAuth ? (
-                            <Menu.Item key={1}><a onClick={handleLogout}>Logout</a></Menu.Item>
-                        ) : (
-                            <Menu.Item key={1}><Link href="/login">Login</Link></Menu.Item>
-                        )}
-                    </Menu>
+                <Row justify="end" align="middle">
+                    <div style={{ color: "white", fontSize: "18px", marginRight: "20px" }}>NextJS</div>
+                    {AuthStore.isAuth ? (
+                        <Button type="primary" onClick={handleLogout}>Logout</Button>
+                    ) : (
+                        <Link href="/login">
+                            <Button type="primary">Login</Button>
+                        </Link>
+                    )}
                 </Row>
             </Layout.Header>
         </Layout>

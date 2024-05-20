@@ -20,7 +20,7 @@ class AuthStore {
 
         try {
 
-         setTimeout(async()=> {
+      
             const response = await axios.get<IUser[]>("./users.json");
             const mockUser = response.data.find(user => user.username === username && user.password === password);
             if(mockUser) {
@@ -33,7 +33,7 @@ class AuthStore {
             } else {
                 this.error = "Помилка отримання даних користувача"
             }
-         }, 500)
+        
         } catch (error) {
             console.error('Помилка отримання даних користувача:', error);
         } finally {
